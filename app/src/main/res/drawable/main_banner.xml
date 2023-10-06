@@ -1,0 +1,9 @@
+<!-- background_fact_layout.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="16dp" />
+    <solid android:color="@color/bluegreen" />
+    <!-- Add a stroke if you want an outline -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/lightgreen" />
+</shape>

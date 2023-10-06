@@ -1,218 +1,470 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:background="#727ADC"
-    >
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+<!--    Fix this, make padding, or figure out a "flex-box" type of deal in kotlin :/ -->
+        <LinearLayout
+            android:id="@+id/userLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/userLayoutText"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:textColor="@color/darkgreen"
+                android:paddingTop="6dp"
+                android:text="Hello User"
+                android:textAlignment="center"
+                android:background="@drawable/second_banner"/>
 
-    <!-- Rounded Squares in a 2x3 grid -->
+<!-- Data please implement -->
+            <TextView
+                android:id="@+id/userLayoutDate"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:textColor="@color/darkgreen"
+                android:paddingTop="6dp"
+                android:text="Data and Time"
+                android:textAlignment="center"
+                android:background="@drawable/second_banner"/>
+        </LinearLayout>
+        <!-- Rounded Squares in a 2x3 grid -->
+        <GridLayout
+            android:id="@+id/factLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:layout_marginTop="56dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/main_banner">
+
+            <!-- Calorie Button -->
+            <LinearLayout
+                android:id="@+id/calorieBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded_lightgreen"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/calorieBoxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "100dp"
+                    android:text="Calories 🔥"
+                    android:textStyle="italic"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/calorieBoxStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd = "40dp"
+                    android:text="2230 [---------  ]"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Protein Button -->
+            <LinearLayout
+                android:id="@+id/proteinBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded_lightgreen"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/proteinBoxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "100dp"
+                    android:text="Protein 🥩"
+                    android:textStyle="italic"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/proteinBoxStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "70dp"
+                    android:text="73g [---------------]"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Carb Button -->
+            <LinearLayout
+                android:id="@+id/carbBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded_mediumgreen"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/carbBoxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "100dp"
+                    android:text="Carbs 🍞"
+                    android:textStyle="italic"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/carbBoxStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "60dp"
+                    android:text="275g [----------    ]"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Fat button -->
+            <LinearLayout
+                android:id="@+id/fatBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded_mediumgreen"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/fatBoxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "100dp"
+                    android:text="Fat 🥑"
+                    android:textStyle="italic"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/fatBoxStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "50dp"
+                    android:text="60g [-----------------  ]"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Fiber Button -->
+            <LinearLayout
+                android:id="@+id/fiberBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded_darkgreen"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/fiberBoxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "100dp"
+                    android:text="Fiber 🌾"
+                    android:textStyle="italic"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/fiberBoxStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "80dp"
+                    android:text="12g [----------- ]"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Water Button -->
+            <LinearLayout
+                android:id="@+id/waterBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded_darkgreen"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/waterBoxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "100dp"
+                    android:text="Water 💧"
+                    android:textStyle="italic"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/waterBoxStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight = "40dp"
+                    android:text="10 cups [-------------    ]"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+        </GridLayout>
+
+        <LinearLayout
+            android:id="@+id/totalTrackingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="285dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/totalTrackingLayoutText"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:textColor="@color/darkgreen"
+                android:paddingTop="6dp"
+                android:text="Goals:"
+                android:textAlignment="center"
+                android:background="@drawable/second_banner"/>
+        </LinearLayout>
+
     <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:columnCount="2"
-        android:rowCount="3"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
-
-        <!-- Calorie Button -->
-        <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/itemLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_red_square"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:columnCount="1"
+            android:rowCount="3"
+            android:layout_marginTop="336dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/main_banner">
+            <!-- Breakfest -->
+            <LinearLayout
+                android:id="@+id/breakfestMainBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight = "100dp"
-                android:text="Calories 🔥"
-                android:textStyle="italic"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_below="@+id/gridLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_box"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/breakfestItemBox"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/breakfestItemBoxTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Breakfest"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+                    <!--This needs a drawable class, make a "item" box-->
+                    <TextView
+                        android:id="@+id/breakfestItemBoxItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Eggs and Bacon\nGlass of Milk"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/breakfestBoxAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/bluegreen"
+                    android:contentDescription="Add Item"
+                    android:src="@drawable/base_line_add" />
+            </LinearLayout>
+
+            <!-- Lunch -->
+            <LinearLayout
+                android:id="@+id/lunchBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight = "90dp"
-                android:text="Status ---------"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
+                android:layout_below="@+id/gridLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_box"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/lunchItemBox"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+                    <!-- Add your content inside the rounded box here -->
+                    <TextView
+                        android:id="@+id/lunchItemBoxTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lunch"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+                    <!--This needs a drawable class, make a "item" box-->
+                    <TextView
+                        android:id="@+id/lunchItemBoxItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Slims meal\nLarge Coke"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+                </LinearLayout>
 
-        <!-- Protein Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_green_square"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/lunchBoxAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/bluegreen"
+                    android:contentDescription="Add Item"
+                    android:src="@drawable/base_line_add" />
+            </LinearLayout>
+            <!-- Dinner -->
+            <LinearLayout
+                android:id="@+id/dinnerBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight = "100dp"
-                android:text="Protein 🥩"
-                android:textStyle="italic"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:layout_below="@+id/gridLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_box"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/dinnerItemBox"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/dinnerItemBoxTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dinner"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+                    <!--This needs a drawable class, make a "item" box-->
+                    <TextView
+                        android:id="@+id/dinnerItemBoxItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fried Chicken\nMashed Potatoes\nSweet tea"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+                </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/dinnerBoxAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/bluegreen"
+                    android:contentDescription="Add Item"
+                    android:src="@drawable/base_line_add" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/snackBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight = "90dp"
-                android:text="Status ---------"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
+                android:layout_below="@+id/gridLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_box"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/snackItemBox"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+                    <!-- Add your content inside the rounded box here -->
+                    <TextView
+                        android:id="@+id/snackItemBoxTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Snack"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+                    <!--This needs a drawable class, make a "item" box-->
+                    <TextView
+                        android:id="@+id/snackItemBoxItems"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3 Cookies\nBag o' Gummies\nDr. Pepper"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp" />
+                </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/snackBoxAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/bluegreen"
+                    android:contentDescription="Add Item"
+                    android:src="@drawable/base_line_add" />
 
-        <!-- Carb Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_orange_square"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "100dp"
-                android:text="Carbs 🍞"
-                android:textStyle="italic"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "90dp"
-                android:text="Status ---------"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!-- Fat button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_yellow_square"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "100dp"
-                android:text="Fat 🥑"
-                android:textStyle="italic"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "90dp"
-                android:text="Status ---------"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!-- Fiber Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_purple_square"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "100dp"
-                android:text="Fiber 🌾"
-                android:textStyle="italic"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "90dp"
-                android:text="Status ---------"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!-- Water Button -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:background="@drawable/rounded_blue_square"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "100dp"
-                android:text="Water 💧"
-                android:textStyle="italic"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight = "90dp"
-                android:text="Status ---------"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-    </GridLayout>
-
-    <!-- Rounded Box at the Bottom -->
-    <LinearLayout
-        android:id="@+id/roundedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gridLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="543dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_box"
-        android:orientation="horizontal">
-        <!-- Add your content inside the rounded box here -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Content"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp" />
-    </LinearLayout>
-
-</RelativeLayout>
+            </LinearLayout>
+        </GridLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,10 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="16dp"/>
-    <solid android:color="#2196F3" />
-    <padding
-        android:left="10dp"
-        android:top="10dp"
-        android:right="32dp"
-        android:bottom="10dp" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow -->
+    <item android:left="8dp" android:top="8dp">
+        <shape>
+            <solid
+                android:color="@color/darkshadow" /> <!-- Adjust the alpha (transparency) as needed -->
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+    <!-- Main Shape -->
+    <item android:right="2dp" android:left="2dp" android:top="2dp" android:bottom="2dp">
+        <shape>
+            <corners android:radius="16dp" />
+            <solid android:color="@color/mediumgreen" />
+            <padding
+                android:left="10dp"
+                android:top="10dp"
+                android:right="32dp"
+                android:bottom="10dp" />
+        </shape>
+    </item>
+</layer-list>
+
