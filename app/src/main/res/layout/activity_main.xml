@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -305,27 +306,28 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/breakfestItemBox"
-                    android:layout_width="265dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="vertical">
+                        android:id="@+id/breakfestItemBox"
+                        android:layout_width="265dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/breakfestItemBoxTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Breakfest"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20dp" />
-                    <!--This needs a drawable class, make a "item" box-->
-                    <TextView
-                        android:id="@+id/breakfestItemBoxItems"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Eggs and Bacon\nGlass of Milk"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16dp" />
+                        <TextView
+                            android:id="@+id/breakfestItemBoxTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Breakfast"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20dp" />
+
+                        <!-- Replace the TextView with a RecyclerView -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/breakfastRecyclerView"
+                            tools:listitem="@layout/recycler_breakfast_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            />
                 </LinearLayout>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -351,13 +353,14 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_box"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:id="@+id/lunchItemBox"
                     android:layout_width="265dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:orientation="vertical">
-                    <!-- Add your content inside the rounded box here -->
+
                     <TextView
                         android:id="@+id/lunchItemBoxTitle"
                         android:layout_width="wrap_content"
@@ -365,14 +368,14 @@
                         android:text="Lunch"
                         android:textColor="#FFFFFF"
                         android:textSize="20dp" />
-                    <!--This needs a drawable class, make a "item" box-->
-                    <TextView
-                        android:id="@+id/lunchItemBoxItems"
-                        android:layout_width="wrap_content"
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/lunchRecyclerView"
+                        tools:listitem="@layout/recycler_lunch_item"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Slims meal\nLarge Coke"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16dp" />
+                        android:layout_marginTop="8dp"
+                        />
                 </LinearLayout>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -397,12 +400,14 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_box"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:id="@+id/dinnerItemBox"
                     android:layout_width="265dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/dinnerItemBoxTitle"
                         android:layout_width="wrap_content"
@@ -410,14 +415,14 @@
                         android:text="Dinner"
                         android:textColor="#FFFFFF"
                         android:textSize="20dp" />
-                    <!--This needs a drawable class, make a "item" box-->
-                    <TextView
-                        android:id="@+id/dinnerItemBoxItems"
-                        android:layout_width="wrap_content"
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/dinnerRecyclerView"
+                        tools:listitem="@layout/recycler_dinner_item"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fried Chicken\nMashed Potatoes\nSweet tea"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16dp" />
+                        android:layout_marginTop="8dp"
+                        />
                 </LinearLayout>
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/dinnerBoxAdd"
@@ -429,6 +434,8 @@
                     android:src="@drawable/base_line_add" />
 
             </LinearLayout>
+
+            <!-- Snack -->
             <LinearLayout
                 android:id="@+id/snackBox"
                 android:layout_width="match_parent"
@@ -447,22 +454,22 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:orientation="vertical">
-                    <!-- Add your content inside the rounded box here -->
+
                     <TextView
                         android:id="@+id/snackItemBoxTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Snack"
+                        android:text="Snacks"
                         android:textColor="#FFFFFF"
                         android:textSize="20dp" />
-                    <!--This needs a drawable class, make a "item" box-->
-                    <TextView
-                        android:id="@+id/snackItemBoxItems"
-                        android:layout_width="wrap_content"
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/snackRecyclerView"
+                        tools:listitem="@layout/recycler_snack_item"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3 Cookies\nBag o' Gummies\nDr. Pepper"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16dp" />
+                        android:layout_marginTop="8dp"
+                        />
                 </LinearLayout>
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/snackBoxAdd"
