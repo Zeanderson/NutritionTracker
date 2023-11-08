@@ -22,6 +22,19 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- First name EditText -->
+        <EditText
+            android:id="@+id/editFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name" />
+
+        <!-- Last name EditText -->
+        <EditText
+            android:id="@+id/editLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name" />
 
         <!-- Email EditText -->
         <EditText
@@ -29,13 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email" />
-
-        <!-- Username EditText -->
-        <EditText
-            android:id="@+id/editUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username" />
 
         <!-- Password EditText -->
         <EditText

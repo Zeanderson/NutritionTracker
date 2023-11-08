@@ -1,7 +1,8 @@
-package mobileProgramming.nutritiontracker
+package mobileProgramming.nutritiontracker.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import mobileProgramming.nutritiontracker.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
