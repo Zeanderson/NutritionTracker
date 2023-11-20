@@ -25,10 +25,10 @@
 
         <!-- Username EditText -->
         <EditText
-            android:id="@+id/editUserName"
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username" />
+            android:hint="Email" />
 
         <!-- Password EditText -->
         <EditText
