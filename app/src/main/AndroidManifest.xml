@@ -30,7 +30,9 @@
         <activity android:name=".signup.SignupActivity">
             <!-- Intent filters go here -->
         </activity>
-
+        <activity android:name=".popups.NewBreakfast">
+            <!-- Intent filters go here -->
+        </activity>
     </application>
 
 </manifest>
