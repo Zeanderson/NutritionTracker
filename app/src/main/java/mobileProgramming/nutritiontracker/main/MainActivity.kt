@@ -3,18 +3,14 @@ package mobileProgramming.nutritiontracker.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
 import mobileProgramming.nutritiontracker.R
 import mobileProgramming.nutritiontracker.UserApplication
 import mobileProgramming.nutritiontracker.data.User
-import mobileProgramming.nutritiontracker.popups.NewBreakfast
+import mobileProgramming.nutritiontracker.popups.NewItem
 
 class MainActivity : AppCompatActivity() {
 
@@ -66,13 +62,35 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         // Button variables
-        val breakfastAdd = findViewById<FloatingActionButton>(R.id.breakfestBoxAdd)
+        val breakfastAdd = findViewById<FloatingActionButton>(R.id.breakfastBoxAdd)
+        val lunchAdd = findViewById<FloatingActionButton>(R.id.lunchBoxAdd)
+        val dinnerAdd = findViewById<FloatingActionButton>(R.id.dinnerBoxAdd)
+        val snackAdd = findViewById<FloatingActionButton>(R.id.snackBoxAdd)
 
         // OnClick Listeners
         breakfastAdd.setOnClickListener{
-            val breakfastIntent = Intent(this@MainActivity,NewBreakfast::class.java)
-            breakfastIntent.putExtra("id",userId)
-            startActivity(breakfastIntent)
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("id",userId)
+            itemIntent.putExtra("type", "Breakfast")
+            startActivity(itemIntent)
+        }
+        lunchAdd.setOnClickListener{
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("id",userId)
+            itemIntent.putExtra("type", "Lunch")
+            startActivity(itemIntent)
+        }
+        dinnerAdd.setOnClickListener{
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("id",userId)
+            itemIntent.putExtra("type", "Dinner")
+            startActivity(itemIntent)
+        }
+        snackAdd.setOnClickListener{
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("id",userId)
+            itemIntent.putExtra("type", "Snack")
+            startActivity(itemIntent)
         }
     }
 }
