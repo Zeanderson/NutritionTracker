@@ -47,10 +47,10 @@ class SignupActivity : AppCompatActivity() {
 
             if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || password.isBlank() || passwordReenter.isBlank()) {
                 // Display a toast message if any field is empty
-                Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignupActivity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
             } else if(password != passwordReenter) {
                 // Display a message if passwords dont match
-                Toast.makeText(this, "Please match passwords", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignupActivity, "Please match passwords", Toast.LENGTH_SHORT).show()
             } else {
                 // Create user with specified fields
                 val newUser = User(

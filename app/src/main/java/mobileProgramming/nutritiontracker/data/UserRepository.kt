@@ -15,10 +15,7 @@ class UserRepository(private val userDao: UserDao) {
     }
 
     @WorkerThread
-    suspend fun getUserByEmail(email: String): LiveData<User?> {
-        return userDao.getUserByEmail(email)
+    suspend fun getUserById(id: Int): User {
+        return userDao.getUserById(id)
     }
-
-
-
 }

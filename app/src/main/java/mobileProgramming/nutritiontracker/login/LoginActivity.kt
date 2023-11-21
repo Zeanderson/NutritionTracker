@@ -50,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(this@LoginActivity, "Welcome ${user.firstName} ${user.lastName}", Toast.LENGTH_SHORT).show()
                             successful = true
                             val mainIntent = Intent(this@LoginActivity, MainActivity::class.java)
+                            mainIntent.putExtra("userId",user.id)
                             startActivity(mainIntent)
                             finish()
                         }
@@ -66,6 +67,9 @@ class LoginActivity : AppCompatActivity() {
         signupButton.setOnClickListener {
             val signupIntent = Intent(this@LoginActivity, SignupActivity::class.java)
             startActivity(signupIntent)
+            // Resetting the inputs for user
+            emailEditText.text.clear()
+            passwordEditText.text.clear()
         }
     }
 }

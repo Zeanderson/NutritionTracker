@@ -14,8 +14,8 @@ interface UserDao {
     suspend fun addUser(user: User)
 
     // Getting user data for login
-    @Query("SELECT * FROM user_table WHERE email = :email")
-    fun getUserByEmail(email: String): LiveData<User?>
+    @Query("SELECT * FROM user_table WHERE id = :id")
+    fun getUserById(id: Int): User
 
     // Read all user data
     @Query("SELECT * FROM user_table ORDER BY id ASC")
