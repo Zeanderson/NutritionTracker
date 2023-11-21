@@ -7,21 +7,23 @@
     >
 
     <EditText
-        android:id="@+id/newLunchName"
+        android:id="@+id/newItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAutofill="no"
         android:fontFamily="sans-serif-light"
-        android:hint="Name"
+        android:hint="@string/name_text"
         android:inputType="textAutoComplete"
         android:layout_margin="6dp"
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/newLunchCalories"
+        android:id="@+id/newItemCalories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAutofill="no"
         android:fontFamily="sans-serif-light"
-        android:hint="Calories"
+        android:hint="@string/calories_text"
         android:inputType="textAutoComplete"
         android:layout_margin="6dp"
         android:textSize="18sp" />
@@ -30,9 +32,9 @@
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkgreen"
-        android:text="Add Lunch Item"
         android:layout_margin="12dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="@string/add_new_item_button_text"
         android:textColor="@color/white" />
 
 </LinearLayout>
