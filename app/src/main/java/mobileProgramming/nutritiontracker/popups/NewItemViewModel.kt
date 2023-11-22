@@ -7,7 +7,7 @@ import mobileProgramming.nutritiontracker.data.Item
 import mobileProgramming.nutritiontracker.data.ItemRepository
 import java.lang.IllegalArgumentException
 
-class NewBreakfastViewModel(private val repository: ItemRepository, private val id:Int) : ViewModel() {
+class NewItemViewModel(private val repository: ItemRepository, private val id:Int) : ViewModel() {
     // ------------------------------- \\
     //  Repository Calls               \\
     // ------------------------------- \\
@@ -23,12 +23,12 @@ class NewBreakfastViewModel(private val repository: ItemRepository, private val 
         }
     }
 }
-class NewBreakfastViewModelFactory(private val repository: ItemRepository, private val id: Int) : ViewModelProvider.Factory {
+class NewItemViewModelFactory(private val repository: ItemRepository, private val id: Int) : ViewModelProvider.Factory {
     override fun <T: ViewModel> create (modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(NewBreakfastViewModel::class.java))
+        if (modelClass.isAssignableFrom(NewItemViewModel::class.java))
         {
             @Suppress("UNCHECKED_CAST")
-            return NewBreakfastViewModel(repository,id) as T
+            return NewItemViewModel(repository,id) as T
         }
         throw IllegalArgumentException("Unknown ViewModel Class")
     }

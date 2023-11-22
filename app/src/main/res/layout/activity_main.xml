@@ -291,9 +291,9 @@
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/main_banner">
-            <!-- Breakfest -->
+            <!-- Breakfast -->
             <LinearLayout
-                android:id="@+id/breakfestMainBox"
+                android:id="@+id/breakfastMainBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/gridLayout"
@@ -306,14 +306,14 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                        android:id="@+id/breakfestItemBox"
+                        android:id="@+id/breakfastItemBox"
                         android:layout_width="265dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/breakfestItemBoxTitle"
+                            android:id="@+id/breakfastItemBoxTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Breakfast"
@@ -331,7 +331,7 @@
                 </LinearLayout>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/breakfestBoxAdd"
+                    android:id="@+id/breakfastBoxAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
