@@ -31,6 +31,13 @@ class NewItemViewModel(private val repository: ItemRepository, private val id:In
     fun updateId(id:Int) {
         curItem = repository.getItem(id).asLiveData()
     }
+
+    suspend fun deleteItem(id: Int)
+    {
+        coroutineScope{
+            repository.deleteItem(id)
+        }
+    }
 }
 class NewItemViewModelFactory(private val repository: ItemRepository, private val id: Int) : ViewModelProvider.Factory {
     override fun <T: ViewModel> create (modelClass: Class<T>): T {

@@ -22,4 +22,7 @@ interface ItemDao {
 
     @Query("SELECT * FROM item_table ORDER BY itemName ASC")
     fun getItems(): Flow<List<Item>>
+
+    @Query("Delete FROM item_table WHERE id=:id")
+    suspend fun deleteItem(id: Int)
 }

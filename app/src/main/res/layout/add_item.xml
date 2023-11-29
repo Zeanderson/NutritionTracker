@@ -37,4 +37,13 @@
         android:text="@string/add_new_item_button_text"
         android:textColor="@color/white" />
 
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="@string/delete_item_button_text"
+        android:textColor="@color/white" />
+
 </LinearLayout>

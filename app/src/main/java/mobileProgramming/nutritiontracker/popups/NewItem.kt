@@ -58,6 +58,8 @@ class NewItem: AppCompatActivity() {
         val submitButton = findViewById<Button>(R.id.button_save)
         submitButton.text = "Add $itemType Item"
 
+        val deleteButton = findViewById<Button>(R.id.button_delete)
+
         submitButton.setOnClickListener {
             // -------- \\
             //  Inputs   \\
@@ -110,6 +112,20 @@ class NewItem: AppCompatActivity() {
                 }
             }
         }
+        }
+
+        deleteButton.setOnClickListener {
+            if (id == -1)
+            {
+                setResult(RESULT_CANCELED)
+                finish()
+            } else {
+                CoroutineScope(SupervisorJob()).launch {
+                    newItemViewModel.deleteItem(id)
+                }
+                setResult(RESULT_OK)
+                finish()
+            }
         }
     }
 }

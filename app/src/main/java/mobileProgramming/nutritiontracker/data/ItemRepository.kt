@@ -23,4 +23,9 @@ class ItemRepository(private val itemDao: ItemDao) {
     suspend fun updateItem(item: Item) {
         itemDao.updateItem(item)
     }
+
+    @WorkerThread
+    suspend fun deleteItem(id: Int) {
+        itemDao.deleteItem(id)
+    }
 }
