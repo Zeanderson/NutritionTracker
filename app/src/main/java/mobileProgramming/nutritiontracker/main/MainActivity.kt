@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Recycle
+        // Recyclers
         val breakfastRecyclerView = findViewById<RecyclerView>(R.id.breakfastRecyclerView)
         val breakfastAdapter = BreakfastListAdapter {
             //Then create a new intent with the ID of the word
@@ -46,9 +46,41 @@ class MainActivity : AppCompatActivity() {
             //And start the activity through the results contract
             startNewItemActivity.launch(intent)
         }
-
         breakfastRecyclerView.adapter = breakfastAdapter
         breakfastRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val lunchRecyclerView = findViewById<RecyclerView>(R.id.lunchRecyclerView)
+        val lunchAdapter = LunchListAdapter {
+            //Then create a new intent with the ID of the word
+            val intent = Intent(this@MainActivity, NewItem::class.java)
+            intent.putExtra(EXTRA_ID,it.id)
+            //And start the activity through the results contract
+            startNewItemActivity.launch(intent)
+        }
+        lunchRecyclerView.adapter = lunchAdapter
+        lunchRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val dinnerRecyclerView = findViewById<RecyclerView>(R.id.dinnerRecyclerView)
+        val dinnerAdapter = DinnerListAdapter {
+            //Then create a new intent with the ID of the word
+            val intent = Intent(this@MainActivity, NewItem::class.java)
+            intent.putExtra(EXTRA_ID,it.id)
+            //And start the activity through the results contract
+            startNewItemActivity.launch(intent)
+        }
+        dinnerRecyclerView.adapter = dinnerAdapter
+        dinnerRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val snackRecyclerView = findViewById<RecyclerView>(R.id.snackRecyclerView)
+        val snackAdapter = SnackListAdapter {
+            //Then create a new intent with the ID of the word
+            val intent = Intent(this@MainActivity, NewItem::class.java)
+            intent.putExtra(EXTRA_ID,it.id)
+            //And start the activity through the results contract
+            startNewItemActivity.launch(intent)
+        }
+        snackRecyclerView.adapter = snackAdapter
+        snackRecyclerView.layoutManager = LinearLayoutManager(this)
 
 //        // -------------------- \\
 //        //  Reference Calls       \\
@@ -92,16 +124,25 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.allItemData.observe(this) {
             items ->
             items.let {
-                val filteredItems = items.filter { it.userId == mainUser.id }
-                breakfastAdapter.submitList(filteredItems)
+                val filteredBreakfastItems = items.filter { it.userId == mainUser.id && it.type == "Breakfast" }
+                breakfastAdapter.submitList(filteredBreakfastItems)
+
+                val filteredLunchItems = items.filter { it.userId == mainUser.id && it.type == "Lunch" }
+                lunchAdapter.submitList(filteredLunchItems)
+
+                val filteredDinnerItems = items.filter { it.userId == mainUser.id && it.type == "Dinner" }
+                dinnerAdapter.submitList(filteredDinnerItems)
+
+                val filteredSnackItems = items.filter { it.userId == mainUser.id && it.type == "Snack" }
+                snackAdapter.submitList(filteredSnackItems)
             }
         }
 
         // Button variables
         val breakfastAdd = findViewById<FloatingActionButton>(R.id.breakfastBoxAdd)
-//        val lunchAdd = findViewById<FloatingActionButton>(R.id.lunchBoxAdd)
-//        val dinnerAdd = findViewById<FloatingActionButton>(R.id.dinnerBoxAdd)
-//        val snackAdd = findViewById<FloatingActionButton>(R.id.snackBoxAdd)
+        val lunchAdd = findViewById<FloatingActionButton>(R.id.lunchBoxAdd)
+        val dinnerAdd = findViewById<FloatingActionButton>(R.id.dinnerBoxAdd)
+        val snackAdd = findViewById<FloatingActionButton>(R.id.snackBoxAdd)
 
         // OnClick Listeners
         breakfastAdd.setOnClickListener{
@@ -111,25 +152,25 @@ class MainActivity : AppCompatActivity() {
             startActivity(itemIntent)
         }
 
-//        lunchAdd.setOnClickListener{
-//            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
-//            itemIntent.putExtra("id",userId)
-//            itemIntent.putExtra("type", "Lunch")
-//            startActivity(itemIntent)
-//        }
+        lunchAdd.setOnClickListener{
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("type", "Lunch")
+            itemIntent.putExtra("UserID", userId)
+            startActivity(itemIntent)
+        }
 
-//        dinnerAdd.setOnClickListener{
-//            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
-//            itemIntent.putExtra("id",userId)
-//            itemIntent.putExtra("type", "Dinner")
-//            startActivity(itemIntent)
-//        }
-//        snackAdd.setOnClickListener{
-//            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
-//            itemIntent.putExtra("id",userId)
-//            itemIntent.putExtra("type", "Snack")
-//            startActivity(itemIntent)
-//        }
+        dinnerAdd.setOnClickListener{
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("type", "Dinner")
+            itemIntent.putExtra("UserID", userId)
+            startActivity(itemIntent)
+        }
+        snackAdd.setOnClickListener{
+            val itemIntent = Intent(this@MainActivity,NewItem::class.java)
+            itemIntent.putExtra("type", "Snack")
+            itemIntent.putExtra("UserID", userId)
+            startActivity(itemIntent)
+        }
     }
 
 }
