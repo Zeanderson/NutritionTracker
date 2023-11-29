@@ -1,7 +1,9 @@
 package mobileProgramming.nutritiontracker.popups
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import kotlinx.coroutines.coroutineScope
 import mobileProgramming.nutritiontracker.data.Item
 import mobileProgramming.nutritiontracker.data.ItemRepository
@@ -17,10 +19,17 @@ class NewItemViewModel(private val repository: ItemRepository, private val id:In
         }
     }
 
-    suspend fun updateItem(item: Item) {
+    suspend fun updateItem(item: Item)
+    {
         coroutineScope {
             repository.updateItem(item)
         }
+    }
+
+    var curItem: LiveData<Item> = repository.getItem(id).asLiveData()
+
+    fun updateId(id:Int) {
+        curItem = repository.getItem(id).asLiveData()
     }
 }
 class NewItemViewModelFactory(private val repository: ItemRepository, private val id: Int) : ViewModelProvider.Factory {

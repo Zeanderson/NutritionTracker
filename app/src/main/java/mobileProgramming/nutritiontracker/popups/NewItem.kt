@@ -14,7 +14,11 @@ import mobileProgramming.nutritiontracker.R
 import mobileProgramming.nutritiontracker.UserApplication
 import mobileProgramming.nutritiontracker.data.Item
 
+const val EXTRA_ID:String = "mobileProgramming.nutritiontracker.EXTRA_ID"
 class NewItem: AppCompatActivity() {
+
+    private lateinit var itemNameEditText: EditText
+    private lateinit var itemCaloriesEditText: EditText
 
     private val newItemViewModel: NewItemViewModel by viewModels {
         NewItemViewModelFactory((application as UserApplication).itemRepository, -1)
@@ -23,49 +27,89 @@ class NewItem: AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_item)
+
+        itemNameEditText = findViewById(R.id.newItemName)
+        itemCaloriesEditText = findViewById(R.id.newItemCalories)
+        // Extra
+        val userId = intent.getIntExtra("UserID",-1)
         var itemType = "Food"
-        val userId = intent.getIntExtra("id", -1)
-        val itemExtra = intent.getStringExtra("type")
-        if (itemExtra != null) {
-            itemType = itemExtra!!
+        val extraType = intent.getStringExtra("type")
+        if (extraType != null) {
+            itemType = extraType!!
         } else {
             Log.d("NewItem", "Missing Item Type")
         }
 
-        // -------------------- \\
-        //  Reference Calls       \\
-        // ------------------------ \\
-        val itemNameEditText = findViewById<EditText>(R.id.newItemName)
-        val itemCaloriesEditText = findViewById<EditText>(R.id.newItemCalories)
+        val id = intent.getIntExtra(EXTRA_ID, -1)
+        if (id != -1)
+        {
+            newItemViewModel.updateId(id)
+        }
 
-        // Button variables
+        // If clicked into, updates the UI to show item with ID
+        newItemViewModel.curItem.observe(this) {
+            item -> item?.let {
+                itemNameEditText.setText(item.itemName)
+                itemCaloriesEditText.setText(item.itemCalories.toString())
+        }
+        }
+
+//      Button variables
         val submitButton = findViewById<Button>(R.id.button_save)
         submitButton.text = "Add $itemType Item"
 
-        //OnClick Listeners
-        submitButton.setOnClickListener{
+        submitButton.setOnClickListener {
             // -------- \\
             //  Inputs   \\
             // ---------- \\
             val itemName = itemNameEditText.text.toString()
             val itemCalories = itemCaloriesEditText.text.toString()
-
             if (itemName.isBlank() || itemCalories.isBlank()) {
-                // Display toast that field is empty
-                Toast.makeText(this@NewItem, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NewItem, "Please fill out all fields", Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                val newItem = Item(
-                    id = 1,
-                    type = itemType,
-                    itemName = itemName,
-                    itemCalories = itemCalories.toInt()
-                )
-                CoroutineScope(SupervisorJob()).launch {
-                    newItemViewModel.addItem(newItem)
+            CoroutineScope(SupervisorJob()).launch {
+                if (id == -1) {
+                    newItemViewModel.addItem(
+                        Item(
+                            null,
+                            userId,
+                            itemType,
+                            itemName,
+                            itemCalories.toInt()
+                        )
+                    )
+                    runOnUiThread {
+                        Toast.makeText(
+                            this@NewItem,
+                            "$itemType Item Added Succesfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    setResult(RESULT_OK)
+                    finish()
+                } else {
+                    newItemViewModel.updateItem(
+                        Item(
+                            id,
+                            userId,
+                            itemType,
+                            itemName,
+                            itemCalories.toInt()
+                        )
+                    )
+                    runOnUiThread {
+                        Toast.makeText(
+                            this@NewItem,
+                            "$itemType Item Updated Succesfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    setResult(RESULT_OK)
+                    finish()
                 }
-                Toast.makeText(this@NewItem, "$itemType Item Added Succesfully", Toast.LENGTH_SHORT).show()
-                finish()
             }
+        }
         }
     }
 }
