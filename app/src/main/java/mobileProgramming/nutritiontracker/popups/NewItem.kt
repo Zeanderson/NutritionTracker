@@ -19,6 +19,11 @@ class NewItem: AppCompatActivity() {
 
     private lateinit var itemNameEditText: EditText
     private lateinit var itemCaloriesEditText: EditText
+    private lateinit var itemProteinEditText: EditText
+    private lateinit var itemCarbsEditText: EditText
+    private lateinit var itemFatEditText: EditText
+    private lateinit var itemFiberEditText: EditText
+    private lateinit var itemWaterEditText: EditText
 
     private val newItemViewModel: NewItemViewModel by viewModels {
         NewItemViewModelFactory((application as UserApplication).itemRepository, -1)
@@ -28,8 +33,17 @@ class NewItem: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_item)
 
+        // References
         itemNameEditText = findViewById(R.id.newItemName)
         itemCaloriesEditText = findViewById(R.id.newItemCalories)
+        itemProteinEditText = findViewById(R.id.newItemProtein)
+        itemCarbsEditText = findViewById(R.id.newItemCarbs)
+        itemFatEditText = findViewById(R.id.newItemFat)
+        itemFiberEditText = findViewById(R.id.newItemFiber)
+        itemWaterEditText = findViewById(R.id.newItemWater)
+
+
+
         // Extra
         val userId = intent.getIntExtra("UserID",-1)
         var itemType = "Food"
@@ -51,6 +65,11 @@ class NewItem: AppCompatActivity() {
             item -> item?.let {
                 itemNameEditText.setText(item.itemName)
                 itemCaloriesEditText.setText(item.itemCalories.toString())
+                itemProteinEditText.setText(item.itemProtein.toString())
+                itemCarbsEditText.setText(item.itemCarbs.toString())
+                itemFatEditText.setText(item.itemFat.toString())
+                itemFiberEditText.setText(item.itemFiber.toString())
+                itemWaterEditText.setText(item.itemWater.toString())
         }
         }
 
@@ -66,7 +85,13 @@ class NewItem: AppCompatActivity() {
             // ---------- \\
             val itemName = itemNameEditText.text.toString()
             val itemCalories = itemCaloriesEditText.text.toString()
-            if (itemName.isBlank() || itemCalories.isBlank()) {
+            val itemProtein = itemProteinEditText.text.toString()
+            val itemCarbs = itemCarbsEditText.text.toString()
+            val itemFat = itemFatEditText.text.toString()
+            val itemFiber = itemFiberEditText.text.toString()
+            val itemWater = itemWaterEditText.text.toString()
+
+            if (itemName.isBlank() || itemCalories.isBlank() || itemProtein.isBlank() || itemCarbs.isBlank() || itemFat.isBlank() || itemFiber.isBlank() || itemWater.isBlank()) {
                 Toast.makeText(this@NewItem, "Please fill out all fields", Toast.LENGTH_SHORT)
                     .show()
             } else {
@@ -78,7 +103,12 @@ class NewItem: AppCompatActivity() {
                             userId,
                             itemType,
                             itemName,
-                            itemCalories.toInt()
+                            itemCalories.toInt(),
+                            itemProtein.toInt(),
+                            itemCarbs.toInt(),
+                            itemFat.toInt(),
+                            itemFiber.toInt(),
+                            itemWater.toInt()
                         )
                     )
                     runOnUiThread {
@@ -97,7 +127,12 @@ class NewItem: AppCompatActivity() {
                             userId,
                             itemType,
                             itemName,
-                            itemCalories.toInt()
+                            itemCalories.toInt(),
+                            itemProtein.toInt(),
+                            itemCarbs.toInt(),
+                            itemFat.toInt(),
+                            itemFiber.toInt(),
+                            itemWater.toInt()
                         )
                     )
                     runOnUiThread {

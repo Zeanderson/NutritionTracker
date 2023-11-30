@@ -23,6 +23,11 @@ data class Item(
     var userId: Int,
     var type: String,
     var itemName: String,
-    var itemCalories: Int
+    var itemCalories: Int,
+    var itemProtein: Int,
+    var itemCarbs: Int,
+    var itemFat: Int,
+    var itemFiber: Int,
+    var itemWater: Int
 )
 

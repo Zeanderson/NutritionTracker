@@ -86,6 +86,12 @@ class MainActivity : AppCompatActivity() {
 //        //  Reference Calls       \\
 //        // ------------------------ \\
         var userTextView = findViewById<TextView>(R.id.userLayoutText)
+        var calTextView = findViewById<TextView>(R.id.calorieBoxStatus)
+        var proteinTextView = findViewById<TextView>(R.id.proteinBoxStatus)
+        var carbsTextView = findViewById<TextView>(R.id.carbBoxStatus)
+        var fatTextView = findViewById<TextView>(R.id.fatBoxStatus)
+        var fiberTextView = findViewById<TextView>(R.id.fiberBoxStatus)
+        var waterTextView = findViewById<TextView>(R.id.waterBoxStatus)
         // Mock User
         var mainUser = User(-1,"","","","")
         var successful = false // Boolean for loop
@@ -124,6 +130,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.allItemData.observe(this) {
             items ->
             items.let {
+                // Updates the recycler views
                 val filteredBreakfastItems = items.filter { it.userId == mainUser.id && it.type == "Breakfast" }
                 breakfastAdapter.submitList(filteredBreakfastItems)
 
@@ -135,6 +142,29 @@ class MainActivity : AppCompatActivity() {
 
                 val filteredSnackItems = items.filter { it.userId == mainUser.id && it.type == "Snack" }
                 snackAdapter.submitList(filteredSnackItems)
+
+                // Updates boxes
+                var calories = 0;
+                var protein = 0;
+                var carbs = 0;
+                var fat = 0;
+                var fiber = 0;
+                var water = 0;
+                for (item in it)
+                {
+                    calories += item.itemCalories
+                    protein += item.itemProtein
+                    carbs += item.itemCarbs
+                    fat += item.itemFat
+                    fiber += item.itemFiber
+                    water += item.itemWater
+                }
+                calTextView.text = calories.toString()
+                proteinTextView.text = protein.toString()
+                carbsTextView.text = carbs.toString()
+                fatTextView.text = fat.toString()
+                fiberTextView.text = fiber.toString()
+                waterTextView.text = water.toString()
             }
         }
 
