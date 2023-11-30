@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity() {
 //        //  Reference Calls       \\
 //        // ------------------------ \\
         var userTextView = findViewById<TextView>(R.id.userLayoutText)
+        var goalsTextView = findViewById<TextView>(R.id.totalTrackingLayoutText)
         var calTextView = findViewById<TextView>(R.id.calorieBoxStatus)
         var proteinTextView = findViewById<TextView>(R.id.proteinBoxStatus)
         var carbsTextView = findViewById<TextView>(R.id.carbBoxStatus)
@@ -144,13 +146,14 @@ class MainActivity : AppCompatActivity() {
                 snackAdapter.submitList(filteredSnackItems)
 
                 // Updates boxes
+                val filteredItems = items.filter {it.userId == mainUser.id}
                 var calories = 0;
                 var protein = 0;
                 var carbs = 0;
                 var fat = 0;
                 var fiber = 0;
                 var water = 0;
-                for (item in it)
+                for (item in filteredItems)
                 {
                     calories += item.itemCalories
                     protein += item.itemProtein
@@ -165,6 +168,31 @@ class MainActivity : AppCompatActivity() {
                 fatTextView.text = fat.toString()
                 fiberTextView.text = fiber.toString()
                 waterTextView.text = water.toString()
+
+                // Update Goals
+                //TODO this should be a user input somewhere and pulled from the database
+                //TODO   mainUser.goalCal (2500) - calories.toString() = remaining cals
+                var diffCal = 1900 - calories
+                var calText = ""
+                // If number is POSITIVE, this means user has NOT met goal
+                if (diffCal > 0)
+                {
+                    calText = "Calories: 1900 - ${calories} = ${diffCal} calories \n ${diffCal} calories remaining\n" + "\n"
+                } else { // User has met the goal!
+                    calText = "Calories: 1900 - ${calories} = ${diffCal} calories \n You have went over by ${diffCal*-1} calories\n" + "\n"
+                }
+                //TODO   mainUser.goalWeight (185) - mainUser.currentWeight (194) = diffWeight
+                var diffWeight = 185 - 195
+                var weightText = ""
+                // If the number is NEGATIVE, this means user has NOT met goal
+                if (diffWeight < 0)
+                {
+                    weightText = "Weight: 185 - 195 = ${diffWeight} pounds \n ${diffWeight*-1} pounds to go!!!"
+                } else {  // User has met the goal!
+                    weightText = "Weight: 185 - 195 = ${diffWeight} pounds \n \"You have met your goal by ${diffWeight} pounds!! \\n Great job!!"
+                }
+
+                goalsTextView.text = "Goal Tracking: \n \n " + calText + weightText
             }
         }
 
