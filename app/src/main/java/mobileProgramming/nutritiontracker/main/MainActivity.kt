@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -19,6 +20,7 @@ import mobileProgramming.nutritiontracker.UserApplication
 import mobileProgramming.nutritiontracker.data.User
 import mobileProgramming.nutritiontracker.popups.EXTRA_ID
 import mobileProgramming.nutritiontracker.popups.NewItem
+import mobileProgramming.nutritiontracker.userSettings.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -201,8 +203,15 @@ class MainActivity : AppCompatActivity() {
         val lunchAdd = findViewById<FloatingActionButton>(R.id.lunchBoxAdd)
         val dinnerAdd = findViewById<FloatingActionButton>(R.id.dinnerBoxAdd)
         val snackAdd = findViewById<FloatingActionButton>(R.id.snackBoxAdd)
+        val userSetting = findViewById<Button>(R.id.userSettings)
 
         // OnClick Listeners
+        userSetting.setOnClickListener{
+            //TODO This is where you would do something similar to the signup page/when you click on a item it pulls up things related to it
+            // Also this is where the information that is going to be used for the box goal box
+            val settingsIntent = Intent(this@MainActivity, SettingsActivity::class.java)
+            startActivity(settingsIntent)
+        }
         breakfastAdd.setOnClickListener{
             val itemIntent = Intent(this@MainActivity,NewItem::class.java)
             itemIntent.putExtra("type", "Breakfast")

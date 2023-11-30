@@ -19,25 +19,38 @@
             android:paddingRight="8dp"
             android:orientation="horizontal"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/userLayoutText"
-                android:layout_width="match_parent"
+                android:layout_width="127dp"
                 android:layout_height="34dp"
-                android:textColor="@color/darkgreen"
+                android:background="@drawable/second_banner"
                 android:paddingTop="6dp"
                 android:text="Hello User"
                 android:textAlignment="center"
-                android:background="@drawable/second_banner"/>
+                android:textColor="@color/darkgreen"
+                android:layout_marginRight="5dp"/>
 <!-- Data please implement -->
             <TextView
                 android:id="@+id/userLayoutDate"
-                android:layout_width="match_parent"
+                android:layout_width="102dp"
                 android:layout_height="34dp"
-                android:textColor="@color/darkgreen"
+                android:background="@drawable/second_banner"
                 android:paddingTop="6dp"
                 android:text="Data and Time"
                 android:textAlignment="center"
-                android:background="@drawable/second_banner"/>
+                android:textColor="@color/darkgreen" />
+
+            <Button
+                android:id="@+id/userSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:background="@drawable/second_banner"
+                android:text="User Settings"
+                android:textColor="@color/darkgreen"
+                app:backgroundTint="@null"
+                android:layout_marginLeft="5dp"/>
+
         </LinearLayout>
         <!-- Rounded Squares in a 2x3 grid -->
         <GridLayout

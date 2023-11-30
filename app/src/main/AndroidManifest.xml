@@ -35,6 +35,10 @@
         <activity android:name=".popups.NewItem">
             <!-- Intent filters go here -->
         </activity>
+
+        <activity android:name=".userSettings.SettingsActivity">
+            <!-- Intent filters go here -->
+        </activity>
     </application>
 
 </manifest>
