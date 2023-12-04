@@ -45,14 +45,14 @@
 
         <!-- Password EditText -->
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password" />
 
         <!-- Password EditText -->
         <EditText
-            android:id="@+id/editTextPasswordReenter"
+            android:id="@+id/editPasswordReenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Re-Enter Password" />

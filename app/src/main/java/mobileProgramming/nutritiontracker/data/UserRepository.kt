@@ -1,7 +1,6 @@
 package mobileProgramming.nutritiontracker.data
 
 import androidx.annotation.WorkerThread
-import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
 
 class UserRepository(private val userDao: UserDao) {
@@ -14,8 +13,13 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addUser(user)
     }
 
+    @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun getUserById(id: Int): User {
+    suspend fun updateUser(user: User)
+    {
+        userDao.update(user)
+    }
+    fun getUserById(id: Int): User {
         return userDao.getUserById(id)
     }
 }
