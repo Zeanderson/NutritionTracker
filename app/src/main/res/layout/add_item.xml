@@ -28,6 +28,61 @@
         android:layout_margin="6dp"
         android:textSize="18sp" />
 
+    <EditText
+        android:id="@+id/newItemProtein"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/protein_text"
+        android:inputType="textAutoComplete"
+        android:layout_margin="6dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/newItemCarbs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/carbs_text"
+        android:inputType="textAutoComplete"
+        android:layout_margin="6dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/newItemFat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/fat_text"
+        android:inputType="textAutoComplete"
+        android:layout_margin="6dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/newItemFiber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/fiber_text"
+        android:inputType="textAutoComplete"
+        android:layout_margin="6dp"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/newItemWater"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/water_text"
+        android:inputType="textAutoComplete"
+        android:layout_margin="6dp"
+        android:textSize="18sp" />
+
     <Button
         android:id="@+id/button_save"
         android:layout_width="match_parent"
@@ -35,6 +90,15 @@
         android:layout_margin="12dp"
         android:backgroundTint="@color/darkgreen"
         android:text="@string/add_new_item_button_text"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="@string/delete_item_button_text"
         android:textColor="@color/white" />
 
 </LinearLayout>

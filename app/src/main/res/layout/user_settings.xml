@@ -1,0 +1,82 @@
+<!-- res/layout/activity_login.xml -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bluegreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/userSettingTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="User Settings"
+        android:textSize="36dp"
+        android:textStyle="italic|bold"
+        android:padding="8dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- First name EditText -->
+        <EditText
+            android:id="@+id/editFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name" />
+
+        <!-- Last name EditText -->
+        <EditText
+            android:id="@+id/editLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name" />
+
+        <!-- Email EditText -->
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+
+        <!-- Password EditText -->
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password" />
+
+        <!-- Password EditText -->
+        <EditText
+            android:id="@+id/editTextPasswordReenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Re-Enter Password" />
+
+        <!-- Calorie Goal EditText -->
+        <EditText
+            android:id="@+id/editTextCalorieGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calorie Goal" />
+
+        <!-- Weight Goal EditText -->
+        <EditText
+            android:id="@+id/editTextWeightGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight Goal" />
+
+        <!-- Signup Button -->
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkgreen"
+            android:text="Update" />
+    </LinearLayout>
+</RelativeLayout>

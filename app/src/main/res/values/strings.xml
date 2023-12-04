@@ -3,6 +3,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new_item_button_text">Add New Item</string>
+    <string name="delete_item_button_text">Delete Item</string>
     <string name="calories_text">Calories</string>
+    <string name="protein_text">Protein</string>
+    <string name="carbs_text">Carbs</string>
+    <string name="fat_text">Fat</string>
+    <string name="fiber_text">Fiber</string>
+    <string name="water_text">Water</string>
     <string name="name_text">Name</string>
 </resources>

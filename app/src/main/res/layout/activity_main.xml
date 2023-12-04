@@ -19,26 +19,38 @@
             android:paddingRight="8dp"
             android:orientation="horizontal"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/userLayoutText"
-                android:layout_width="match_parent"
+                android:layout_width="127dp"
                 android:layout_height="34dp"
-                android:textColor="@color/darkgreen"
+                android:background="@drawable/second_banner"
                 android:paddingTop="6dp"
                 android:text="Hello User"
                 android:textAlignment="center"
-                android:background="@drawable/second_banner"/>
-
+                android:textColor="@color/darkgreen"
+                android:layout_marginRight="5dp"/>
 <!-- Data please implement -->
             <TextView
                 android:id="@+id/userLayoutDate"
-                android:layout_width="match_parent"
+                android:layout_width="102dp"
                 android:layout_height="34dp"
-                android:textColor="@color/darkgreen"
+                android:background="@drawable/second_banner"
                 android:paddingTop="6dp"
                 android:text="Data and Time"
                 android:textAlignment="center"
-                android:background="@drawable/second_banner"/>
+                android:textColor="@color/darkgreen" />
+
+            <Button
+                android:id="@+id/userSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:background="@drawable/second_banner"
+                android:text="User Settings"
+                android:textColor="@color/darkgreen"
+                app:backgroundTint="@null"
+                android:layout_marginLeft="5dp"/>
+
         </LinearLayout>
         <!-- Rounded Squares in a 2x3 grid -->
         <GridLayout
@@ -81,8 +93,8 @@
                     android:id="@+id/calorieBoxStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd = "40dp"
-                    android:text="2230 [---------  ]"
+                    android:layout_marginEnd = "65dp"
+                    android:text="0"
                     android:textSize="12dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -113,8 +125,8 @@
                     android:id="@+id/proteinBoxStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight = "70dp"
-                    android:text="73g [---------------]"
+                    android:paddingRight = "125dp"
+                    android:text="0"
                     android:textSize="12dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -145,8 +157,8 @@
                     android:id="@+id/carbBoxStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight = "60dp"
-                    android:text="275g [----------    ]"
+                    android:paddingRight = "125dp"
+                    android:text="0"
                     android:textSize="12dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -177,8 +189,8 @@
                     android:id="@+id/fatBoxStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight = "50dp"
-                    android:text="60g [-----------------  ]"
+                    android:paddingRight = "125dp"
+                    android:text="0"
                     android:textSize="12dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -209,8 +221,8 @@
                     android:id="@+id/fiberBoxStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight = "80dp"
-                    android:text="12g [----------- ]"
+                    android:paddingRight = "125dp"
+                    android:text="0"
                     android:textSize="12dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -241,8 +253,8 @@
                     android:id="@+id/waterBoxStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight = "40dp"
-                    android:text="10 cups [-------------    ]"
+                    android:paddingRight = "125dp"
+                    android:text="0"
                     android:textSize="12dp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -261,7 +273,7 @@
             <TextView
                 android:id="@+id/totalTrackingLayoutText"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"
+                android:layout_height="128dp"
                 android:textColor="@color/darkgreen"
                 android:paddingTop="6dp"
                 android:text="Goals:"
@@ -286,7 +298,7 @@
             android:layout_alignParentTop="true"
             android:columnCount="1"
             android:rowCount="3"
-            android:layout_marginTop="375dp"
+            android:layout_marginTop="475dp"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="8dp"
             android:layout_marginLeft="8dp"
