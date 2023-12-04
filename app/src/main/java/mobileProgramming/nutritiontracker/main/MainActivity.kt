@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
         var fiberTextView = findViewById<TextView>(R.id.fiberBoxStatus)
         var waterTextView = findViewById<TextView>(R.id.waterBoxStatus)
         // Mock User
-        var mainUser = User(-1,"","","","")
+        var mainUser = User(-1,"","","","", 195, 185, 1900)
         var successful = false // Boolean for loop
 
         val userId = intent.getIntExtra("userId", -1)
@@ -117,6 +117,9 @@ class MainActivity : AppCompatActivity() {
                             mainUser.lastName = user.lastName
                             mainUser.email = user.email
                             userTextView.text = "Hello, ${mainUser.firstName}"
+                            mainUser.currentWeight = user.currentWeight
+                            mainUser.weightGoal = user.weightGoal
+                            mainUser.calorieGoal = user.calorieGoal
                         }
                     }
 
@@ -172,26 +175,24 @@ class MainActivity : AppCompatActivity() {
                 waterTextView.text = water.toString()
 
                 // Update Goals
-                //TODO this should be a user input somewhere and pulled from the database
-                //TODO   mainUser.goalCal (2500) - calories.toString() = remaining cals
-                var diffCal = 1900 - calories
+                var diffCal = mainUser.calorieGoal - calories
                 var calText = ""
                 // If number is POSITIVE, this means user has NOT met goal
                 if (diffCal > 0)
                 {
-                    calText = "Calories: 1900 - ${calories} = ${diffCal} calories \n ${diffCal} calories remaining\n" + "\n"
+                    calText = "Calories: ${mainUser.calorieGoal} - ${calories} = ${diffCal} calories \n ${diffCal} calories remaining\n" + "\n"
                 } else { // User has met the goal!
-                    calText = "Calories: 1900 - ${calories} = ${diffCal} calories \n You have went over by ${diffCal*-1} calories\n" + "\n"
+                    calText = "Calories: ${mainUser.calorieGoal} - ${calories} = ${diffCal} calories \n You have went over by ${diffCal*-1} calories\n" + "\n"
                 }
-                //TODO   mainUser.goalWeight (185) - mainUser.currentWeight (194) = diffWeight
-                var diffWeight = 185 - 195
+
+                var diffWeight = mainUser.weightGoal - mainUser.currentWeight
                 var weightText = ""
                 // If the number is NEGATIVE, this means user has NOT met goal
                 if (diffWeight < 0)
                 {
-                    weightText = "Weight: 185 - 195 = ${diffWeight} pounds \n ${diffWeight*-1} pounds to go!!!"
+                    weightText = "Weight: ${mainUser.weightGoal} - ${mainUser.currentWeight} = ${diffWeight} pounds \n ${diffWeight*-1} pounds to go!!!"
                 } else {  // User has met the goal!
-                    weightText = "Weight: 185 - 195 = ${diffWeight} pounds \n \"You have met your goal by ${diffWeight} pounds!! \\n Great job!!"
+                    weightText = "Weight: ${mainUser.weightGoal} - ${mainUser.currentWeight} = ${diffWeight} pounds \n \"You have met your goal by ${diffWeight} pounds!! \\n Great job!!"
                 }
 
                 goalsTextView.text = "Goal Tracking: \n \n " + calText + weightText
@@ -207,9 +208,8 @@ class MainActivity : AppCompatActivity() {
 
         // OnClick Listeners
         userSetting.setOnClickListener{
-            //TODO This is where you would do something similar to the signup page/when you click on a item it pulls up things related to it
-            // Also this is where the information that is going to be used for the box goal box
             val settingsIntent = Intent(this@MainActivity, SettingsActivity::class.java)
+            settingsIntent.putExtra("UserID", userId)
             startActivity(settingsIntent)
         }
         breakfastAdd.setOnClickListener{

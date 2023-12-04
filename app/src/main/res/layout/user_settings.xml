@@ -23,6 +23,7 @@
         android:padding="16dp">
 
         <!-- First name EditText -->
+
         <EditText
             android:id="@+id/editFirstName"
             android:layout_width="match_parent"
@@ -45,33 +46,41 @@
 
         <!-- Password EditText -->
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password" />
 
         <!-- Password EditText -->
         <EditText
-            android:id="@+id/editTextPasswordReenter"
+            android:id="@+id/editPasswordReenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Re-Enter Password" />
 
         <!-- Calorie Goal EditText -->
+
         <EditText
-            android:id="@+id/editTextCalorieGoal"
+            android:id="@+id/editCurrentWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Calorie Goal" />
+            android:hint="Current Weight" />
 
         <!-- Weight Goal EditText -->
         <EditText
-            android:id="@+id/editTextWeightGoal"
+            android:id="@+id/editWeightGoal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Weight Goal" />
 
         <!-- Signup Button -->
+
+        <EditText
+            android:id="@+id/editCalorieGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calorie Goal" />
+
         <Button
             android:id="@+id/buttonUpdate"
             android:layout_width="match_parent"

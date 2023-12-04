@@ -28,8 +28,8 @@ class SignupActivity : AppCompatActivity() {
         val firstNameEditText = findViewById<EditText>(R.id.editFirstName)
         val lastNameEditText = findViewById<EditText>(R.id.editLastName)
         val emailEditText = findViewById<EditText>(R.id.editEmail)
-        val passwordEditText = findViewById<EditText>(R.id.editTextPassword)
-        val passwordReenterEditText = findViewById<EditText>(R.id.editTextPasswordReenter)
+        val passwordEditText = findViewById<EditText>(R.id.editPassword)
+        val passwordReenterEditText = findViewById<EditText>(R.id.editPasswordReenter)
 
         // Button variables
         val submitButton = findViewById<Button>(R.id.buttonSignup)
@@ -49,7 +49,7 @@ class SignupActivity : AppCompatActivity() {
                 // Display a toast message if any field is empty
                 Toast.makeText(this@SignupActivity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
             } else if(password != passwordReenter) {
-                // Display a message if passwords dont match
+                // Display a message if passwords don't match
                 Toast.makeText(this@SignupActivity, "Please match passwords", Toast.LENGTH_SHORT).show()
             } else {
                 // Create user with specified fields
@@ -58,7 +58,10 @@ class SignupActivity : AppCompatActivity() {
                     firstName = firstName,
                     lastName = lastName,
                     email = email,
-                    password = password
+                    password = password,
+                    currentWeight = 195,
+                    weightGoal = 185,
+                    calorieGoal = 2000
                 )
                 CoroutineScope(SupervisorJob()).launch {
                     signUpViewModel.insert(newUser)

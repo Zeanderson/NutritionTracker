@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         //  Reference Calls       \\
         // ------------------------ \\
         val emailEditText = findViewById<EditText>(R.id.editEmail)
-        val passwordEditText = findViewById<EditText>(R.id.editTextPassword)
+        val passwordEditText = findViewById<EditText>(R.id.editPassword)
 
         // Button variables
         val loginButton = findViewById<Button>(R.id.buttonLogin)
