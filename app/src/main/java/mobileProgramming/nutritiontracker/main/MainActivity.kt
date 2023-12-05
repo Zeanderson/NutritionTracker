@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -21,6 +20,9 @@ import mobileProgramming.nutritiontracker.data.User
 import mobileProgramming.nutritiontracker.popups.EXTRA_ID
 import mobileProgramming.nutritiontracker.popups.NewItem
 import mobileProgramming.nutritiontracker.userSettings.SettingsActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
@@ -85,9 +87,17 @@ class MainActivity : AppCompatActivity() {
         snackRecyclerView.adapter = snackAdapter
         snackRecyclerView.layoutManager = LinearLayoutManager(this)
 
-//        // -------------------- \\
-//        //  Reference Calls       \\
-//        // ------------------------ \\
+        // Data & Time information
+        val dateAndTimeTextView: TextView = findViewById(R.id.userLayoutDate)
+
+        val dateFormat = SimpleDateFormat("MMMM d", Locale.getDefault())
+        val currentDateAndTime: String = dateFormat.format(Date())
+
+        dateAndTimeTextView.text = currentDateAndTime
+
+        // -------------------- \\
+        //  Reference Calls       \\
+        // ------------------------ \\
         var userTextView = findViewById<TextView>(R.id.userLayoutText)
         var goalsTextView = findViewById<TextView>(R.id.totalTrackingLayoutText)
         var calTextView = findViewById<TextView>(R.id.calorieBoxStatus)
@@ -97,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         var fiberTextView = findViewById<TextView>(R.id.fiberBoxStatus)
         var waterTextView = findViewById<TextView>(R.id.waterBoxStatus)
         // Mock User
-        var mainUser = User(-1,"","","","", 195, 185, 1900)
+        var mainUser = User(-1,"","","","", 0, 0, 0)
         var successful = false // Boolean for loop
 
         val userId = intent.getIntExtra("userId", -1)

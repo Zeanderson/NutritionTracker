@@ -21,7 +21,15 @@
         android:layout_marginTop="125dp"
         android:orientation="vertical"
         android:padding="16dp">
-
+        <!-- Personal Info Section TextView -->
+        <TextView
+            android:id="@+id/textPersonalInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Personal Information"
+            android:textSize="32dp"
+            />
         <!-- First name EditText -->
         <EditText
             android:id="@+id/editFirstName"
@@ -56,6 +64,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Re-Enter Password" />
+
+        <!-- Nutrition Info Section TextView -->
+        <TextView
+            android:id="@+id/textNutritionInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="Nutrition Information"
+            android:textSize="32dp"
+            />
+
+        <!-- Current Weight EditText -->
+        <EditText
+            android:id="@+id/editCurrentWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Current Weight"/>
+
+        <!-- Goal Weight EditText -->
+        <EditText
+            android:id="@+id/editWeightGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Goal Weight"/>
+
+        <!-- Goal Calories EditText -->
+        <EditText
+            android:id="@+id/editCalorieGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calorie Goal"/>
 
         <!-- Signup Button -->
         <Button

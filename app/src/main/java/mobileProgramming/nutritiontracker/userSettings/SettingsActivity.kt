@@ -19,7 +19,6 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var editLastName: EditText
     private lateinit var editEmail: EditText
     private lateinit var editPassword: EditText
-    private lateinit var editPasswordReenter: EditText
     private lateinit var editCurrentWeight: EditText
     private lateinit var editWeightGoal: EditText
     private lateinit var editCalorieGoal: EditText
@@ -40,7 +39,6 @@ class SettingsActivity : AppCompatActivity() {
         editLastName = findViewById(R.id.editLastName)
         editEmail = findViewById(R.id.editEmail)
         editPassword = findViewById(R.id.editPassword)
-        editPasswordReenter = findViewById(R.id.editPasswordReenter)
         editCurrentWeight = findViewById(R.id.editCurrentWeight)
         editWeightGoal = findViewById(R.id.editWeightGoal)
         editCalorieGoal = findViewById(R.id.editCalorieGoal)
@@ -52,7 +50,6 @@ class SettingsActivity : AppCompatActivity() {
             editLastName.setText(currentUser.lastName)
             editEmail.setText(currentUser.email)
             editPassword.setText(currentUser.password)
-            editPasswordReenter.setText(currentUser.password)
             editCurrentWeight.setText(currentUser.currentWeight.toString())
             editWeightGoal.setText(currentUser.weightGoal.toString())
             editCalorieGoal.setText(currentUser.calorieGoal.toString())
@@ -67,7 +64,6 @@ class SettingsActivity : AppCompatActivity() {
             val lastName = editLastName.text.toString()
             val email = editEmail.text.toString()
             val password = editPassword.text.toString()
-            val passwordReenter = editPasswordReenter.text.toString()
             var currentWeight = 195
             var weightGoal = 185
             var calorieGoal = 1900
@@ -80,12 +76,9 @@ class SettingsActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || password.isBlank() || passwordReenter.isBlank()) {
+            if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || password.isBlank()) {
                 // Display a toast message if any field is empty
                 Toast.makeText(this@SettingsActivity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
-            } else if (password != passwordReenter) {
-                // Display a message if passwords don't match
-                Toast.makeText(this@SettingsActivity, "Please match passwords", Toast.LENGTH_SHORT).show()
             } else {
                 // Update user with specified fields
                 val newUser = User(

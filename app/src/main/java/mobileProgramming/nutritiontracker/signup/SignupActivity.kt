@@ -30,6 +30,9 @@ class SignupActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.editEmail)
         val passwordEditText = findViewById<EditText>(R.id.editPassword)
         val passwordReenterEditText = findViewById<EditText>(R.id.editPasswordReenter)
+        val currentWeightEditText = findViewById<EditText>(R.id.editCurrentWeight)
+        val goalWeightEditText = findViewById<EditText>(R.id.editWeightGoal)
+        val goalCaloriesEditText = findViewById<EditText>(R.id.editCalorieGoal)
 
         // Button variables
         val submitButton = findViewById<Button>(R.id.buttonSignup)
@@ -44,8 +47,12 @@ class SignupActivity : AppCompatActivity() {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
             val passwordReenter = passwordReenterEditText.text.toString()
+            val currentWeight = currentWeightEditText.text.toString()
+            val goalWeight = goalWeightEditText.text.toString()
+            val goalCalories = goalCaloriesEditText.text.toString()
 
-            if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || password.isBlank() || passwordReenter.isBlank()) {
+            if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || password.isBlank()
+                || passwordReenter.isBlank() || currentWeight.isBlank() || goalWeight.isBlank() || goalCalories.isBlank()) {
                 // Display a toast message if any field is empty
                 Toast.makeText(this@SignupActivity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
             } else if(password != passwordReenter) {
@@ -59,9 +66,9 @@ class SignupActivity : AppCompatActivity() {
                     lastName = lastName,
                     email = email,
                     password = password,
-                    currentWeight = 195,
-                    weightGoal = 185,
-                    calorieGoal = 2000
+                    currentWeight = currentWeight.toInt(),
+                    weightGoal = goalWeight.toInt(),
+                    calorieGoal = goalCalories.toInt()
                 )
                 CoroutineScope(SupervisorJob()).launch {
                     signUpViewModel.insert(newUser)
